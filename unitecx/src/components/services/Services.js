@@ -18,13 +18,14 @@ const Services = () => {
         const services = await req.json();
         setdata({
           services: services,
-          auth: true
+
+          loading: false
         });
       } catch (err) {
         console.log(err);
         setdata({
           errors: err,
-          auth: false
+          loading: false
         });
       }
     };

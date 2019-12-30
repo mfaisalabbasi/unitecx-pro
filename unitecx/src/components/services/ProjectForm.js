@@ -6,7 +6,7 @@ const ProjectForm = () => {
   let history = useHistory();
   const alert = useAlert();
 
-  const [formData, setFormData] = useState({
+  let [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
@@ -26,18 +26,17 @@ const ProjectForm = () => {
   const onSubmit = async e => {
     e.preventDefault();
     try {
+      const formD = new FormData();
+      formD.append('name', name);
+      formD.append('email', email);
+      formD.append('phone', phone);
+      formD.append('protype', protype);
+      formD.append('description', description);
+      formD.append('file', selectedFile);
+
       const req = await fetch('http://localhost:5000/api/projects', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-      const fileD = new FormData();
-      fileD.append('file', selectedFile);
-      await fetch('http://localhost:5000/api/projects', {
         method: 'post',
-        body: fileD
+        body: formD
       });
       const res = await req.json();
       const errors = res.errors;
@@ -52,17 +51,14 @@ const ProjectForm = () => {
       alert.show('unable to find, check your address');
     }
   };
+  console.log(formData);
   return (
     <div className='project-form'>
       <div className='pform-head'>
         <h2>To start a Project !!!</h2>
       </div>
 
-      <form
-        onSubmit={e => onSubmit(e)}
-        method='post'
-        encType='multipart/form-data'
-      >
+      <form onSubmit={e => onSubmit(e)} encType='multipart/form-data'>
         <div className='form-group'>
           <input
             type='text'

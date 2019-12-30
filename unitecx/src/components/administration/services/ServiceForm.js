@@ -20,19 +20,16 @@ const ServiceForm = () => {
   const onSubmit = async e => {
     e.preventDefault();
     try {
+      const formD = new FormData();
+      formD.append('name', name);
+      formD.append('bio', bio);
+      formD.append('description', description);
+      formD.append('file', selectedFile);
       const req = await fetch('http://localhost:5000/api/services', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
+        body: formD
       });
-      const fileD = new FormData();
-      fileD.append('file', selectedFile);
-      await fetch('http://localhost:5000/api/services', {
-        method: 'post',
-        body: fileD
-      });
+
       const res = await req.json();
       const errors = res.errors;
       if (errors) {

@@ -27,20 +27,16 @@ const PortfolioForm = () => {
   const onSubmit = async e => {
     e.preventDefault();
     try {
+      const formD = new FormData();
+      formD.append('name', name);
+      formD.append('bio', bio);
+      formD.append('file', selectedFile);
+      formD.append('description', description);
       const req = await fetch('http://localhost:5000/api/portfolios', {
         method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
+        body: formD
       });
       const res = await req.json();
-      const fileD = new FormData();
-      fileD.append('file', selectedFile);
-      await fetch('http://localhost:5000/api/portfolios', {
-        method: 'post',
-        body: fileD
-      });
       const errors = res.errors;
       if (errors) {
         errors.map(err => alert.show(err.msg));
