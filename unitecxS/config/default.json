@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://unitecx:unitecx@cluster0-dhxva.mongodb.net/test?retryWrites=true&w=majority",
+  "secKey": "secKey"
+}
