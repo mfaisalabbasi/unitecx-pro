@@ -27,7 +27,7 @@ const Portfolios = () => {
     getPortfolios();
   }, []);
   const { portfolios, loading } = data;
-  console.log(portfolios);
+
   return (
     <section>
       <div className='container'>

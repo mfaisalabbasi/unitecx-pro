@@ -43,7 +43,7 @@ const ProjectForm = () => {
       if (errors) {
         errors.map(err => alert.show(err.msg));
       } else {
-        alert.success(`order submitted successfully...`);
+        alert.success(`order submitted check your mailbox...`);
         history.push('/services');
       }
     } catch (err) {
@@ -51,7 +51,7 @@ const ProjectForm = () => {
       alert.show('unable to find, check your address');
     }
   };
-  console.log(formData);
+
   return (
     <div className='project-form'>
       <div className='pform-head'>

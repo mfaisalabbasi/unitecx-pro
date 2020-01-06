@@ -23,7 +23,6 @@ const PortfolioForm = () => {
     });
   };
 
-  console.log(formData);
   const onSubmit = async e => {
     e.preventDefault();
     try {

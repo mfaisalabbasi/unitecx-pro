@@ -10,7 +10,7 @@ const Services = () => {
     errors: null,
     isAuthenticated: false
   });
-  console.log(data);
+
   useEffect(() => {
     const fetchServices = async () => {
       try {
@@ -18,7 +18,6 @@ const Services = () => {
         const services = await req.json();
         setdata({
           services: services,
-
           loading: false
         });
       } catch (err) {
@@ -32,7 +31,7 @@ const Services = () => {
     fetchServices();
   }, []);
   const { services, loading } = data;
-  console.log(data);
+
   return (
     <section>
       <div className='container'>

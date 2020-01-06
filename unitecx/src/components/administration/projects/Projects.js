@@ -9,7 +9,7 @@ const Projects = () => {
     loading: true,
     errors: null
   });
-  console.log(data);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -54,28 +54,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-// class Projects extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       projects: [],
-//       loading: false,
-//       errors: null
-//     };
-//   }
-//   async componentDidMount() {
-//     try {
-//       this.setState({ loading: true });
-//       const req = await fetch('http://localhost:5000/api/projects');
-//       const res = await req.json();
-//       this.setState({ projects: res, loading: false });
-//       console.log(this.state);
-//     } catch (err) {
-//       console.log(err);
-//       this.setState({ errors: err, loading: false });
-//       console.log(this.state);
-//     }
-//   }
-//   render() {
-//     const { loading, projects } = this.state;

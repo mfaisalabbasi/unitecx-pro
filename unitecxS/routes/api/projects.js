@@ -4,8 +4,10 @@ const Project = require('../../models/Project');
 const { check, validationResult } = require('express-validator');
 const multer = require('multer');
 const auth = require('../../middleware/auth');
-//multer section for uploading files
+const nodemailer = require('nodemailer');
+require('dotenv').config();
 
+//multer section for uploading files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'public/images/projectfiles');
@@ -61,10 +63,40 @@ router.post(
       //checking is email is Already
       const validEmail = await Project.findOne({ email: email });
       if (validEmail) {
-        return res.status(400).json('Email is already Exists');
+        return res
+          .status(400)
+          .json({ errors: [{ msg: 'Email is already in use' }] });
       }
       const project = new Project(newproject);
       await project.save();
+
+      //Node mailing setups...
+
+      let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.EMAIL,
+          pass: process.env.PASSWORD
+        },
+        tls: {
+          rejectUnauthorized: false
+        }
+      });
+      transporter.sendMail(
+        {
+          from: '"Unitecx Services" <mf09054@gmail.com>', // sender address
+          to: email, // list of receivers
+          subject: 'Thanks for submitting project to unitecx', // Subject line
+          html: `<h1>Welcome,${name}</h1><p>Thanks for submitting order to unitecx services. we are here for you to provide our best services. After reviewing your project our experts will contact you on this email address ,<b>${email}</b> or on your contact number <b>${phone}</b>. <h3>Thanks Unitecx</h3></p>`
+        },
+        (error, info) => {
+          if (error) {
+            console.log(error);
+          }
+          console.log(info);
+        }
+      );
+
       res.status(200).json(project);
     } catch (err) {
       console.log(err);

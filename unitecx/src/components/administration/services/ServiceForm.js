@@ -16,7 +16,7 @@ const ServiceForm = () => {
   const handleFile = e => {
     setFormData({ ...formData, selectedFile: e.target.files[0] });
   };
-  console.log(formData);
+
   const onSubmit = async e => {
     e.preventDefault();
     try {

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import unilogo from '../img/unilogo.png';
 
 const Navbar = () => {
   return (
@@ -8,9 +9,11 @@ const Navbar = () => {
         <div className='fix-header'>
           <header>
             <div className='logo'>
-              <Link to='/'>
-                <h1 className='heading'>Unitecx</h1>
-              </Link>
+              <div className='uni-logo'>
+                <Link to='/'>
+                  <img src={unilogo} alt='unitecx' />
+                </Link>
+              </div>
             </div>
 
             <nav>

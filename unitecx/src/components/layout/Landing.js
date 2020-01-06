@@ -1,9 +1,10 @@
 import React from 'react';
-import Unitecx from '../img/Unitecx.png';
-import caro1 from '../img/caro1.jpg';
-import caro2 from '../img/caro2.jpg';
+import webdevelopment from '../img/webdevelopment.png';
+import appdevelopment from '../img/appdevelopment.png';
+import digitalmarketing from '../img/digitalmarketing.png';
 import AwesomeSlider from 'react-awesome-slider';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
+import Services from '../services/Services';
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Landing = () => {
@@ -19,18 +20,38 @@ const Landing = () => {
         >
           <div className='caro'>
             {' '}
-            <img src={Unitecx} alt='slider' width='100%' height='100%' />
+            <img
+              src={webdevelopment}
+              alt='slider'
+              width='100%'
+              height='100%'
+              style={{ maxWidth: '100%' }}
+            />
           </div>
           <div className='caro'>
             {' '}
-            <img src={caro1} alt='slider' width='100%' height='100%' />
+            <img
+              src={appdevelopment}
+              alt='slider'
+              width='100%'
+              height='100%'
+              style={{ maxWidth: '100%' }}
+            />
           </div>
           <div className='caro'>
             {' '}
-            <img src={caro2} alt='slider' width='100%' height='100%' />
+            <img
+              src={digitalmarketing}
+              alt='slider'
+              width='100%'
+              height='100%'
+              style={{ maxWidth: '100%' }}
+            />
           </div>
         </AutoplaySlider>
       </div>
+
+      <Services />
     </section>
   );
 };

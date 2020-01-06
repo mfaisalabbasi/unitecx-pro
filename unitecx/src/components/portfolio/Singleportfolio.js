@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import slide from '../img/slide.jpg';
 import ProjectForm from '../services/ProjectForm';
 import { useAlert } from 'react-alert';
 import Spinner from '../animations/Spinner';
-import Unitecx from '../img/Unitecx.png';
-import caro1 from '../img/caro1.jpg';
-import caro2 from '../img/caro2.jpg';
+import webdevelopment from '../img/webdevelopment.png';
+import appdevelopment from '../img/appdevelopment.png';
+import digitalmarketing from '../img/digitalmarketing.png';
 import AwesomeSlider from 'react-awesome-slider';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 const AutoplaySlider = withAutoplay(AwesomeSlider);
@@ -43,7 +42,7 @@ const Singleportfolio = props => {
     };
     fetchData();
   }, [alert, id]);
-  console.log(data);
+
   const { loading, portfolio } = data;
   return (
     <section>
@@ -62,15 +61,30 @@ const Singleportfolio = props => {
               >
                 <div className='caro'>
                   {' '}
-                  <img src={Unitecx} alt='slider' width='100%' height='100%' />
+                  <img
+                    src={webdevelopment}
+                    alt='slider'
+                    width='100%'
+                    height='100%'
+                  />
                 </div>
                 <div className='caro'>
                   {' '}
-                  <img src={caro1} alt='slider' width='100%' height='100%' />
+                  <img
+                    src={appdevelopment}
+                    alt='slider'
+                    width='100%'
+                    height='100%'
+                  />
                 </div>
                 <div className='caro'>
                   {' '}
-                  <img src={caro2} alt='slider' width='100%' height='100%' />
+                  <img
+                    src={digitalmarketing}
+                    alt='slider'
+                    width='100%'
+                    height='100%'
+                  />
                 </div>
               </AutoplaySlider>
             </div>
@@ -81,27 +95,32 @@ const Singleportfolio = props => {
               {portfolio.name} <i className='fa fa-code heading'></i>
             </h1>
 
-            <p>{portfolio.bio}</p>
-          </div>
-
-          <div className='sm-container' style={{ borderBottom: 'none' }}>
-            <h3 className='heading-start'>Fast Server and Community</h3>
             <p>{portfolio.description}</p>
           </div>
+
           <div className='sm-container' style={{ borderBottom: 'none' }}>
             <div className='slider'>
               <div className='box'>
                 {' '}
-                <h3 className='heading-start'>Fast Server and Community</h3>
+                <h3 className='heading-start'>Secure and Fast</h3>
+                <p>{portfolio.bio}</p>
+                <h3 className='heading-start'>Tools and Technologies</h3>
                 <p>
-                  Hellow world how are You doing this is cool way to describe
-                  education Hellow world how are You doing this is cool way to
-                  describe education Hellow world how are You doing this is cool
-                  way to describe education
+                  we have expert community that grow with time and upto data
+                  with technologies, we used all best and new tricks for
+                  development
                 </p>
+                <div className='services-list'>
+                  <ul>
+                    <li>Html5 + Css3</li>
+                    <li>Javascript,Reactjs</li>
+                    <li>Nodejs,php</li>
+                    <li>Firebase,mongoDb,mysql</li>
+                  </ul>
+                </div>
               </div>
               <div className='dbl-box'>
-                <img src={slide} alt='web Dev' width='100%' />
+                <img src={portfolio.file} alt='web Dev' width='100%' />
               </div>
             </div>
           </div>

@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import slide from '../../img/slide.jpg';
-import ProjectForm from '../../services/ProjectForm';
 import { useAlert } from 'react-alert';
 import Spinner from '../../animations/Spinner';
-import Unitecx from '../../img/Unitecx.png';
-import caro1 from '../../img/caro1.jpg';
-import caro2 from '../../img/caro2.jpg';
-import AwesomeSlider from 'react-awesome-slider';
-import withAutoplay from 'react-awesome-slider/dist/autoplay';
-const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Singlepro = props => {
   const [data, setdata] = useState({
@@ -38,7 +30,7 @@ const Singlepro = props => {
     };
     fetchData();
   }, [id, alert]);
-  console.log(data);
+
   const { loading, project } = data;
   return (
     <section>
@@ -46,30 +38,6 @@ const Singlepro = props => {
         <Spinner />
       ) : (
         <div className='container'>
-          <div className='slider'>
-            <div className='carosoule'>
-              <AutoplaySlider
-                play={true}
-                cancelOnInteraction={false} // should stop playing on user interaction
-                interval={3000}
-                bullets={false}
-                style={{ height: '40vh' }}
-              >
-                <div className='caro'>
-                  {' '}
-                  <img src={Unitecx} alt='slider' width='100%' height='100%' />
-                </div>
-                <div className='caro'>
-                  {' '}
-                  <img src={caro1} alt='slider' width='100%' height='100%' />
-                </div>
-                <div className='caro'>
-                  {' '}
-                  <img src={caro2} alt='slider' width='100%' height='100%' />
-                </div>
-              </AutoplaySlider>
-            </div>
-          </div>
           <div className='sm-container' style={{ borderBottom: 'none' }}>
             <h1 className='heading'>
               {' '}
@@ -82,23 +50,38 @@ const Singlepro = props => {
           <div className='sm-container' style={{ borderBottom: 'none' }}>
             <div className='slider'>
               <div className='box'>
-                {' '}
-                <h3 className='heading-start'>Fast Server and Community</h3>
-                <p>
-                  Hellow world how are You doing this is cool way to describe
-                  education Hellow world how are You doing this is cool way to
-                  describe education Hellow world how are You doing this is cool
-                  way to describe education
-                </p>
+                <h4 className='heading-start'>
+                  <i className='fa fa-envelope'></i> Email :{' '}
+                  <span className='data'>{project.email}</span>
+                </h4>
+                <h4 className='heading-start'>
+                  <i className='fa fa-mobile'></i> Phone :{' '}
+                  <span className='data'>{project.phone}</span>
+                </h4>
+                <h4 className='heading-start'>
+                  <i className='fa fa-mail-bulk'></i> Project Type :{' '}
+                  <span className='data'>{project.protype}</span>
+                </h4>
+                <h4 className='heading-start'>
+                  <i className='fa fa-clock'></i> Order Date :{' '}
+                  <span className='data'>{project.date}</span>
+                </h4>{' '}
+                <h4 className='heading-start'>
+                  <i className='fa fa-box'></i> Project status :{' '}
+                  <span className='data'>pending</span>
+                </h4>
               </div>
               <div className='dbl-box'>
-                <img src={slide} alt='web Dev' width='100%' />
+                {' '}
+                <h4 className='heading-start'>
+                  <i className='fa fa-mail-bulk'></i> Project files :{' '}
+                  <span className='data'>
+                    <img src={project.file} alt='files' width='100%' />
+                  </span>
+                </h4>
               </div>
             </div>
           </div>
-
-          <div className='slider' />
-          <ProjectForm />
         </div>
       )}
     </section>
