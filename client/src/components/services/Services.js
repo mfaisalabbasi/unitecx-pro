@@ -14,7 +14,7 @@ const Services = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const req = await fetch('http://localhost:5000/api/services');
+        const req = await fetch('https://still-dusk-38383.herokuapp.com/api/services');
         const services = await req.json();
         setdata({
           services: services,
