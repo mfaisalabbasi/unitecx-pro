@@ -15,7 +15,7 @@ app.use('/api/projects', require('./routes/api/projects'));
 app.use('/api/portfolios', require('./routes/api/portfolios'));
 app.use('/api/services', require('./routes/api/services'));
 app.use('/api/user', require('./routes/api/user'));
-
+const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
