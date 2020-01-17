@@ -24,5 +24,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfaisalabbasi/unitecx-pro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mfaisalabbasi/unitecx-pro/issues"
+  },
+  "homepage": "https://github.com/mfaisalabbasi/unitecx-pro#readme"
 }
