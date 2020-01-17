@@ -24,7 +24,7 @@ const Signup = () => {
   };
   const onSubmit = async e => {
     e.preventDefault();
-    const req = await fetch('http://localhost:5000/api/user/register', {
+    const req = await fetch('https://still-dusk-38383.herokuapp.com/api/user/register', {
       method: 'post',
       headers: {
         'Content-type': 'application/json'

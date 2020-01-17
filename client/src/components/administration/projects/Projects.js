@@ -13,7 +13,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios('http://localhost:5000/api/projects', {
+        const res = await axios('https://still-dusk-38383.herokuapp.com/api/projects', {
           headers: {
             'x-auth-token': localStorage.getItem('token')
           }

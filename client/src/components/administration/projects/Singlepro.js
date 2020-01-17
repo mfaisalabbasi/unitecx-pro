@@ -13,7 +13,7 @@ const Singlepro = props => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const req = await fetch(`http://localhost:5000/api/projects/${id}`);
+        const req = await fetch(`https://still-dusk-38383.herokuapp.com/api/projects/${id}`);
         const res = await req.json();
         const error = res.error;
         if (error) {

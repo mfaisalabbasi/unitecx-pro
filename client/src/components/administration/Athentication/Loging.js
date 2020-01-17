@@ -14,7 +14,7 @@ const Loging = () => {
   const onChange = e => setdata({ ...data, [e.target.name]: e.target.value });
   const onSubmit = async e => {
     e.preventDefault();
-    const req = await fetch('http://localhost:5000/api/user/loging', {
+    const req = await fetch('https://still-dusk-38383.herokuapp.com/api/user/loging', {
       method: 'post',
       headers: {
         'Content-type': 'application/json'

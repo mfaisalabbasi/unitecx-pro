@@ -20,7 +20,9 @@ const Singleservice = props => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const req = await fetch(`http://localhost:5000/api/services/${id}`);
+        const req = await fetch(
+          `https://still-dusk-38383.herokuapp.com/api/services/${id}`
+        );
         const res = await req.json();
         const error = res.error;
         if (error) {

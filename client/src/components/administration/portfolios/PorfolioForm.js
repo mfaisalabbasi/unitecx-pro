@@ -31,7 +31,7 @@ const PortfolioForm = () => {
       formD.append('bio', bio);
       formD.append('file', selectedFile);
       formD.append('description', description);
-      const req = await fetch('http://localhost:5000/api/portfolios', {
+      const req = await fetch('https://still-dusk-38383.herokuapp.com/api/portfolios', {
         method: 'post',
         body: formD
       });

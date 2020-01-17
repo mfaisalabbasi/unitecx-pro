@@ -12,7 +12,9 @@ const Portfolios = () => {
   useEffect(() => {
     const getPortfolios = async () => {
       try {
-        const req = await fetch('http://localhost:5000/api/portfolios');
+        const req = await fetch(
+          'https://still-dusk-38383.herokuapp.com/api/portfolios'
+        );
         const portfolios = await req.json();
 
         setdata({ portfolios: portfolios, loading: false });
