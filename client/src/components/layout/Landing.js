@@ -10,7 +10,7 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 const Landing = () => {
   return (
     <section>
-      <div className='carosoule'>
+      <div className='carosoule' style={{ marginBottom: '-70px' }}>
         <AutoplaySlider
           play={true}
           cancelOnInteraction={false} // should stop playing on user interaction

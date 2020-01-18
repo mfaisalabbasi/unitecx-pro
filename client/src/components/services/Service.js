@@ -9,12 +9,14 @@ const Service = ({ service }) => {
         <div className='img-sec'>
           <img src={file} alt='img-sec' width='100%' />
         </div>
-        <h3 className='heading'>{name}</h3>
-        <p style={{ paddingTop: '5px' }}>{bio}</p>
+        <div className='sec-content'>
+          <h3 className='heading'>{name}</h3>
+          <p style={{ paddingTop: '5px' }}>{bio}</p>
 
-        <Link to={`/api/services/${_id}`}>
-          <button>Read More...</button>
-        </Link>
+          <Link to={`/api/services/${_id}`}>
+            <button>Read More...</button>
+          </Link>
+        </div>
       </div>
     </Fragment>
   );
