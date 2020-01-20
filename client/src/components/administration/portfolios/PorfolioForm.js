@@ -47,7 +47,7 @@ const PortfolioForm = () => {
         history.push('/portfolios');
       }
     } catch (err) {
-      console.error('Unable to connect...', err);
+      console.log('Unable to connect...', err);
       alert.show('unable to find, check your address');
     }
   };
