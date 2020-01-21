@@ -34,13 +34,10 @@ const ProjectForm = () => {
       formD.append('description', description);
       formD.append('file', selectedFile);
 
-      const req = await fetch(
-        'https://still-dusk-38383.herokuapp.com/api/projects',
-        {
-          method: 'post',
-          body: formD
-        }
-      );
+      const req = await fetch('http://localhost:5000/api/projects', {
+        method: 'post',
+        body: formD
+      });
       const res = await req.json();
       const errors = res.errors;
       if (errors) {

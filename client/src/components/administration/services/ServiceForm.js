@@ -25,13 +25,10 @@ const ServiceForm = () => {
       formD.append('bio', bio);
       formD.append('description', description);
       formD.append('file', selectedFile);
-      const req = await fetch(
-        'https://still-dusk-38383.herokuapp.com/api/services',
-        {
-          method: 'POST',
-          body: formD
-        }
-      );
+      const req = await fetch('http://localhost:5000/api/services', {
+        method: 'POST',
+        body: formD
+      });
 
       const res = await req.json();
       const errors = res.errors;
